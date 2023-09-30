@@ -3,7 +3,6 @@ import { Note } from "../models/note";
 import { User } from "../models/user";
 
 
-const URL: string = "https://cool-notes-api.onrender.com";
 async function fetchData(input: RequestInfo, init?: RequestInit) {
   const response = await fetch(input, init);
   if (response.ok) {
@@ -24,7 +23,7 @@ async function fetchData(input: RequestInfo, init?: RequestInit) {
  
 
 export async function fetchUser(): Promise<User> {
-  const response = await fetchData(URL+"/api/users", { method: "GET" });
+  const response = await fetchData("/api/users", { method: "GET" });
   return response.json();
 }
 
@@ -36,7 +35,7 @@ export interface SignUpInput {
 }
 
 export async function signUp(user: SignUpInput): Promise<User> {
-  const response = await fetchData(URL+"/api/users/signup",
+  const response = await fetchData("/api/users/signup",
   {
     method: "POST",
     headers: {
@@ -55,7 +54,7 @@ export interface LoginInput {
 }
 
 export async function login(user: LoginInput): Promise<User> {
-  const response = await fetchData(URL+"/api/users/login",
+  const response = await fetchData("/api/users/login",
   {
     method: "POST",
     headers: {
@@ -68,12 +67,12 @@ export async function login(user: LoginInput): Promise<User> {
 
 // Logout
 export async function logout(): Promise<void> {
-  await fetchData(URL+"/api/users/logout", { method: "POST" });
+  await fetchData("/api/users/logout", { method: "POST" });
 }
 
 
 export async function fetchNotes(): Promise<Note[]> {
-  const response = await fetchData(URL+"/api/notes", { method: "GET" });
+  const response = await fetchData("/api/notes", { method: "GET" });
   return response.json();
 } 
   
@@ -83,7 +82,7 @@ export interface NoteInput {
 }
 
 export async function createNote(note: NoteInput): Promise<Note> {
-  const response  = await fetchData(URL+"/api/notes",
+  const response  = await fetchData("/api/notes",
   {
     method: "POST",
     headers: {
@@ -95,7 +94,7 @@ export async function createNote(note: NoteInput): Promise<Note> {
 }
 
 export async function updateNote(noteId: string, note: NoteInput): Promise<Note> {
-  const response = await fetchData(URL+`/api/notes/${noteId}`,
+  const response = await fetchData(`/api/notes/${noteId}`,
   {
     method: "PATCH",
     headers: {
@@ -107,5 +106,5 @@ export async function updateNote(noteId: string, note: NoteInput): Promise<Note>
 }
 
 export async function deleteNote(noteId: string): Promise<void> {
-  await fetchData(URL+`/api/notes/${noteId}`, { method: "DELETE" });
+  await fetchData(`/api/notes/${noteId}`, { method: "DELETE" });
 }
