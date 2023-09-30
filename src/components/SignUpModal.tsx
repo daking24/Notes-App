@@ -1,12 +1,12 @@
-import { useForm } from "react-hook-form";
-import { User } from "../models/user";
-import { SignUpInput } from "../network/api";
-import * as Api from "../network/api";
-import { Alert, Button, Form, Modal } from "react-bootstrap";
-import TextInputField from "./form/TextInputField";
-import styleUtils from '../styles/utils.module.css'
 import { useState } from 'react';
-import { ConflictError, UnauthorizedError } from "../errors/http_errors";
+import { Alert, Button, Form, Modal } from "react-bootstrap";
+import { useForm } from "react-hook-form";
+import { ConflictError } from "../errors/http_errors";
+import { User } from "../models/user";
+import * as Api from "../network/api";
+import { SignUpInput } from "../network/api";
+import styleUtils from '../styles/utils.module.css';
+import TextInputField from "./form/TextInputField";
 
 interface SignUpModalProps {
   onDismiss: () => void,
