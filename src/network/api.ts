@@ -3,7 +3,7 @@ import { Note } from "../models/note";
 import { User } from "../models/user";
 import env from "../utils/validateEnv";
 
-const backendUrl = env.BACKEND_URL;
+const backendUrl = env.REACT_APP_BACKEND_URL;
 
 async function fetchData(input: RequestInfo, init?: RequestInit) {
   const baseUrl = backendUrl.startsWith('https://') ? backendUrl : `https://${backendUrl}`;
