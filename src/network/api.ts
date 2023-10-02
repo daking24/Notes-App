@@ -1,11 +1,13 @@
 import { ConflictError, UnauthorizedError } from "../errors/http_errors";
 import { Note } from "../models/note";
 import { User } from "../models/user";
+import env from "../utils/validateEnv";
 
-const backendUrl = process.env.BACKEND_URL;
+const backendUrl = env.BACKEND_URL;
 
 async function fetchData(input: RequestInfo, init?: RequestInit) {
-  const response = await fetch(`https://${backendUrl}${input}`, init);
+  const baseUrl = backendUrl.startsWith('https://') ? backendUrl : `https://${backendUrl}`;
+  const response = await fetch(`${baseUrl}${input}`, init);
   if (response.ok) {
     return response;
   } else {
