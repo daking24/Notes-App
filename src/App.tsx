@@ -41,7 +41,7 @@ function App() {
         <Container className={styles.appContainer}>
           <Routes>
             <Route
-              path='/notes'
+              path='/'
               element={<NotePage authUser={logInUser} />}
             />
             <Route
