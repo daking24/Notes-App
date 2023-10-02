@@ -5,7 +5,7 @@ import { User } from "../models/user";
 const backendUrl = process.env.BACKEND_URL;
 
 async function fetchData(input: RequestInfo, init?: RequestInit) {
-  const response = await fetch(`${backendUrl}${input}`, init);
+  const response = await fetch(`https://${backendUrl}${input}`, init);
   if (response.ok) {
     return response;
   } else {
