@@ -1,9 +1,9 @@
+import { Card } from "react-bootstrap";
+import { MdDelete } from "react-icons/md";
+import { Note as NoteModel } from "../models/note";
 import styles from "../styles/Note.module.css";
 import stylesUtils from "../styles/utils.module.css";
-import Card from "react-bootstrap/Card";
-import { Note as NoteModel } from "../models/note";
 import { formatDate } from "../utils/formatDate";
-import { MdDelete } from "react-icons/md";
 
 interface NoteProps {
   note: NoteModel,
@@ -21,19 +21,19 @@ const Note = ({ note, onNoteClick, className, onDelete }: NoteProps) => {
     createdUpdatedText = "Created: " + formatDate(createdAt);
   }
   return (
-    <Card 
-    className={`${styles.noteCard} ${className}`}
-    onClick={() => onNoteClick(note)}>
+    <Card
+      className={`${styles.noteCard} ${className}`}
+      onClick={() => onNoteClick(note)}>
       <Card.Body className={styles.cardBody}>
         <Card.Title className={stylesUtils.flexCenter}>
           {title}
-          <MdDelete 
-          className={`text-muted ms-auto`}
-          onClick={(e) => {
-            onDelete(note);
-            e.stopPropagation();
-          }
-          } />
+          <MdDelete
+            className={`text-muted ms-auto`}
+            onClick={(e) => {
+              onDelete(note);
+              e.stopPropagation();
+            }
+            } />
         </Card.Title>
         <Card.Text className={styles.cardText}>{text}</Card.Text>
       </Card.Body>

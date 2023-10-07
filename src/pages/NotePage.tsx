@@ -1,15 +1,15 @@
 import { Container } from "react-bootstrap";
-import styles from "../styles/NotesPage.module.css";
 import LogInNotePage from "../components/LogInNotePage";
 import LogOutNotePage from "../components/LogOutNotePage";
 import { User } from "../models/user";
+import styles from "../styles/NotesPage.module.css";
 
 
-interface NotePageProps{
-  authUser: User|null,
+interface NotePageProps {
+  authUser: User | null,
 }
-const NotePage = ({authUser}:NotePageProps) => {
-  return ( 
+const NotePage = ({ authUser }: NotePageProps) => {
+  return (
     <Container className={styles.notesPage}>
       <>
         {authUser
@@ -18,7 +18,7 @@ const NotePage = ({authUser}:NotePageProps) => {
         }
       </>
     </Container>
-   );
+  );
 }
- 
+
 export default NotePage;

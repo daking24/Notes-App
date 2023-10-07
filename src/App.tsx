@@ -42,7 +42,7 @@ function App() {
           <Routes>
             <Route
               path='/'
-              element={<NotePage authUser={logInUser} />}
+              element={<NotePage authUser={logInUser}/>}
             />
             <Route
               path='/about'

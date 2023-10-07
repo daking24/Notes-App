@@ -16,17 +16,17 @@ const LogInNavBar = ({ user, onLogOut }: LogInNavBarProps) => {
     } catch (error) {
       console.error(error);
       alert(error);
-      
+
     }
   }
   return (
-      <>
+    <>
       <Navbar.Text className="me-2">
         Signed in as: {user.username}
       </Navbar.Text>
       <Button onClick={logout}>Log Out</Button>
-      </>
-    );
+    </>
+  );
 }
- 
+
 export default LogInNavBar;

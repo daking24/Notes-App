@@ -1,8 +1,8 @@
-import { Button, Form, Modal } from "react-bootstrap"
-import { Note } from "../models/note"
-import { useForm } from "react-hook-form"
-import { NoteInput } from "../network/api"
+import { Button, Form, Modal } from "react-bootstrap";
+import { useForm } from "react-hook-form";
+import { Note } from "../models/note";
 import * as NotesApi from "../network/api";
+import { NoteInput } from "../network/api";
 import TextInputField from "./form/TextInputField";
 
 interface AddEditNoteProps {
@@ -38,7 +38,9 @@ function AddEditNote({ noteToEdit, onDismiss, onNoteSaved }: AddEditNoteProps) {
   return (
     <Modal show onHide={onDismiss}>
       <Modal.Header closeButton>
-        { noteToEdit ? "Edit Note" : "Add Note" }
+        <Modal.Title>
+          { noteToEdit ? "Edit Note" : "Add Note" }
+        </Modal.Title>
       </Modal.Header>
 
       <Modal.Body>

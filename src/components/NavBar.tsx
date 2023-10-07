@@ -1,8 +1,8 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { User } from "../models/user";
 import LogInNavBar from "./LogInNavBar";
 import LogOutNavBar from "./LogOutNavBar";
-import { Link } from "react-router-dom";
 
 interface NavBarProps {
   LoggedInUser: User | null,
@@ -15,7 +15,7 @@ const NavBar = ({ LoggedInUser, onSignUpClicked, onLogInClicked, onLogOut }: Nav
   return (
       <Navbar bg="primary" variant="dark" expand="lg" sticky="top">
         <Container>
-          <Navbar.Brand as={Link} to={'/'}> 
+          <Navbar.Brand as={Link} to="/"> 
             Notes App
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="main-navbar" />

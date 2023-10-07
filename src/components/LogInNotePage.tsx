@@ -3,10 +3,10 @@ import { Button, Col, Row, Spinner } from "react-bootstrap";
 import { FaPlus } from "react-icons/fa";
 import { Note as NoteModel } from "../models/note";
 import * as NotesApi from "../network/api";
-import AddEditNote from "./AddEditNote";
-import Note from "./Note";
 import styles from "../styles/NotesPage.module.css";
 import stylesUtils from "../styles/utils.module.css";
+import AddEditNote from "./AddEditNote";
+import Note from "./Note";
 
 const LogInNotePage = () => {
   const [notes, setNotes] = useState<NoteModel[]>([]);
@@ -19,8 +19,8 @@ const LogInNotePage = () => {
   useEffect(() => {
     async function loadNotes() {
       try {
-        setNotesLoading(true);
         setNotesLoadingError(false);
+        setNotesLoading(true);
         const notes = await NotesApi.fetchNotes();
         setNotes(notes);
       } catch (error) {
@@ -56,7 +56,7 @@ const LogInNotePage = () => {
         </Col>
       ))}
     </Row>
-  return ( 
+  return (
     <>
       <Button className={`my-4 ${stylesUtils.blockCenter} ${stylesUtils.flexCenter}`} onClick={() => setShowAddNotes(true)}>
         <FaPlus />
@@ -89,7 +89,7 @@ const LogInNotePage = () => {
           }} />
       }
     </>
-   );
+  );
 }
- 
+
 export default LogInNotePage;
